@@ -1,0 +1,6 @@
+version: 2
+
+sources:
+  - name: SQL_DBT_demo
+    tables:
+      - name: Squirrel_2018_census
