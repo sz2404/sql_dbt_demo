@@ -19,3 +19,7 @@ models:
             tests:
                 - unique
                 - not_null
+    - name: squirrel_all
+      description: "view for showing all feature"
+    - name: squirrel_colour
+      description: "view for showing colours"
