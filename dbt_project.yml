@@ -37,6 +37,10 @@ models:
     # Applies to all files under models/example/
     example:
       +schema: example
+    # Space for all the raw source data
+    source:
+      +schema: source
+    # Space for staing and transformation models
     gg_model:
       staging:
         +database: gg_model

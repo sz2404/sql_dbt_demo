@@ -1,9 +1,14 @@
 version: 2
 
 sources:
-  - name: SQL_DBT_demo
+  - name: SQL_DBT_demo_source
+    schema: SQL_DBT_demo_source
     tables:
-      - name: Squirrel_2018_census
-      - name: partner
+      - name: partners
       - name: referrals
       - name: sales_people
+
+  - name: SQL_DBT_demo
+    schema: SQL_DBT_demo
+    tables:
+      - name: Squirrel_2018_census
