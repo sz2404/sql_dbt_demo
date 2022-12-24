@@ -48,5 +48,11 @@ models:
       modeled:
         +database: gg_model
         +schema: modeled
+        finance:
+          +database: gg_model
+          +schema: modeled.finance
+        sales:
+          +database: gg_model
+          +schema: modeled.sales
 
       
