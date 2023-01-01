@@ -1,8 +1,8 @@
 WITH CTE AS (
     SELECT
         id, 
-        CAST(created_at/1000000000 AS float64) AS nc, 
-        CAST(updated_at/1000000000 AS float64) AS nu,
+        DATE(TIMESTAMP_SECONDS(CAST(CAST(created_at/1000000000 AS float64) AS int64))) AS created_at, 
+        DATE(TIMESTAMP_SECONDS(CAST(CAST(updated_at/1000000000 AS float64) AS int64))) AS updated_at,
         company_id,
         partner_id,
         consultant_id,
@@ -13,8 +13,9 @@ WITH CTE AS (
 
 SELECT
     id, 
-    DATE(TIMESTAMP_SECONDS(cast(nc as int64))) as created_at,
-    DATE(TIMESTAMP_SECONDS(cast(nu as int64))) as updated_at,
+    created_at,
+    updated_at,
+    DATE_DIFF(updated_at, created_at, DAY) as time_lapse,
     company_id,
     partner_id,
     consultant_id,

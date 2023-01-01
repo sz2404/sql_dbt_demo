@@ -2,23 +2,43 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: partners
+      description: "raw view for all partner information"
       columns:
           - name: id
-            description: "The primary key for this table"
+            description: "Primary key for partners view"
             tests:
                 - unique
                 - not_null
+          - name: partner_type
+            tests:
+                - not_null
+                - dbt_expectations.expect_column_values_to_be_in_set:
+                    value_set: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']
+          - name: lead_sales_contact
+            description: "sale rep name"
+            tests:
+                - not_null
+                - dbt_utils.not_empty_string
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
+    - name: referrals
+      description: "raw data of all referrals"
+      columns: 
+        - name: id
+          description: "unique id of each referral"
+          tests:
+            - unique
+            - not_null
+    - name: sales_people
+      description: "list sales manager and regions they represents"
       columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+        - name: Name
+          descriptions: "sales manager name"
+          tests: 
+            - unique
+            - not_null
+            - dbt_utils.not_empty_string
+
     - name: squirrel_all
       description: "view for showing all feature"
     - name: squirrel_colour

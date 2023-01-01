@@ -12,3 +12,7 @@ sources:
     schema: SQL_DBT_demo
     tables:
       - name: Squirrel_2018_census
+      - name: partners
+      - name: referrals
+      - name: sales_people
+      
