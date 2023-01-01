@@ -38,8 +38,15 @@ models:
             - unique
             - not_null
             - dbt_utils.not_empty_string
-
-    - name: squirrel_all
-      description: "view for showing all feature"
-    - name: squirrel_colour
-      description: "view for showing colours"
+    - name: complete_sales
+      description: "referral records and completes the pipeline from inbound to outbound"
+    - name: monthly_successful_referral_rate
+      description: "referral (inbound or outbound) reached sucessful stage"
+    - name: commission_by_inbound_partner
+      description: "unique referral records that completes the pipeline from inbound to outbound"
+      tests:
+        - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - company_id_inbound
+              - partner_id_inbound
+              - partner_id_outbound

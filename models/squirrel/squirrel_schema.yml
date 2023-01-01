@@ -1,0 +1,6 @@
+version: 2
+models:
+    - name: squirrel_all
+      description: "view for showing all feature"
+    - name: squirrel_colour
+      description: "view for showing colours"
