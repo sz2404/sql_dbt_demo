@@ -1,4 +1,4 @@
-#Welcome to GG's dbt project!
+# Welcome to GG's dbt project!
 
 ## Vision
 DBT is very power tool for structuring datasets within GG and serve as version control on query definition. GG is a data driven company and different departments have customized needs for data view on carrying out further analysis. 
