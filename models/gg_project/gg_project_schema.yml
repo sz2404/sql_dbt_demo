@@ -40,8 +40,10 @@ models:
             - dbt_utils.not_empty_string
     - name: complete_sales
       description: "referral records and completes the pipeline from inbound to outbound"
+
     - name: monthly_successful_referral_rate
       description: "referral (inbound or outbound) reached sucessful stage"
+      
     - name: commission_by_inbound_partner
       description: "unique referral records that completes the pipeline from inbound to outbound"
       tests:
