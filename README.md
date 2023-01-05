@@ -17,13 +17,16 @@ Based on the provided information, it is assumed that, a complete referral recor
 1. Consultant Harry from Partner Hogwarts connects with Customer Ron from Company Gryffindor
 2. Harry introduced Ron to GG
 The successful *inbound record* would show up as:
+
 | id     | created_at | updated_at | company_id | partner_id | consultant_id | is_outbound |  status  |
 |--------|-----------:|:----------:|:----------:|:----------:|:-------------:|:-----------:|:--------:|
 | 1      | 2022-01-02 | 2022-02-01 | Gryffindor | Hogwarts   | Harry         |0            |successful|
+
 3. Ron is happy to use GG's service 
 4. Ron got connected to Consultant Luna from Partner Ravenclaws
 5. Ron signed a deal with Luna
 The successful *outbound record* would show up as:
+
 | id     | created_at | updated_at | company_id | partner_id | consultant_id | is_outbound |  status  |
 |--------|-----------:|:----------:|:----------:|:----------:|:-------------:|:-----------:|:--------:|
 | 2      | 2022-02-03 | 2022-02-21 | Gryffindor | Ravenclaws | Luna          |1            |successful|
