@@ -6,17 +6,52 @@ After processing and transforming the raw data, this project aims to create view
 
 ## Models Structure
 - *Staging space*: staging space contains transformed dataset from raw/source data that can be ready to use for future analysis/modeling 
-- *Modeled space*: the modeled space contains views developed for different departments
+- *Modeled space*: the modeled space contains views developed for different departments & purposes, including:
+    - company_kpi: company-wide usage
+    - finance: commission calculation 
+    - sales: stats for referral records 
 
+## Assumptions
+The referral raw datasets contains both inbound and outbound referrals. 
+Based on the provided information, it is assumed that, a complete referral record would include an inbound and an outbound record. For example:
+1. Consultant Harry from Partner Hogwarts connects with Customer Ron from Company Gryffindor
+2. Harry introduced Ron to GG
+The successful *inbound record* would show up as:
+| id     | created_at | updated_at | company_id | partner_id | consultant_id | is_outbound |  status  |
+|--------|-----------:|:----------:|:----------:|:----------:|:-------------:|:-----------:|:--------:|
+| 1      | 2022-01-02 | 2022-02-01 | Gryffindor | Hogwarts   | Harry         |0            |successful|
+3. Ron is happy to use GG's service 
+4. Ron got connected to Consultant Luna from Partner Ravenclaws
+5. Ron signed a deal with Luna
+The successful *outbound record* would show up as:
+| id     | created_at | updated_at | company_id | partner_id | consultant_id | is_outbound |  status  |
+|--------|-----------:|:----------:|:----------:|:----------:|:-------------:|:-----------:|:--------:|
+| 2      | 2022-02-03 | 2022-02-21 | Gryffindor | Ravenclaws | Luna          |1            |successful|
 
+To make those two referrals for a complete referral record, it is assumed that once a company reached successful inbound referral, the query will look for a closest outbound referral that is created after it's inbound updated date.
 
+## Visualization sample
+A few different plots were generated in Google Colab notebook to visualize the processed datasets. 
+Link to the [notebook](https://colab.research.google.com/drive/1aFFbXqrOjf7U_EYkPAzi97tp3f3Ut5kv#scrollTo=w6MmeBUBJ-9E
+
+## Improvements
+If the above assumptions are correct, there are some additional features can be considered to make the analysis more robust and improve customer experience.
+Some interesting features to include can be:
+1. Customer ID - easier to match the inbound and outbound record
+    - assigned a Specific customer ID to a customer from a company
+    - if the customer switch to a different company, a new ID can be assigned
+2. Disinterest reasoning
+    - Inbound: it can provide additional feedback for partners
+    - Outbound: this can help GG to find out potential new product features and area to expand to
+3. Sales Representative follow-up record 
+    - Most of the records are in pending status
+    - Follow-up records might be helpeful for the sales team to prioritize cilent meeting 
 
 ### Using the starter project
 
 Try running the following commands:
 - dbt run
 - dbt test
-
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
