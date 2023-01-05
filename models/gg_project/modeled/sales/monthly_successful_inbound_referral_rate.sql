@@ -24,3 +24,4 @@ FROM {{ ref('referrals') }} AS r
 LEFT JOIN {{ ref('partners') }} AS p
     ON r.partner_id = p.id
 GROUP BY CONCAT(EXTRACT(YEAR FROM r.created_at), '-', EXTRACT(MONTH FROM r.created_at))
+WHERE is_outbound = 0

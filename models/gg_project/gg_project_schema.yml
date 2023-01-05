@@ -29,6 +29,7 @@ models:
           tests:
             - unique
             - not_null
+
     - name: sales_people
       description: "list sales manager and regions they represents"
       columns:
@@ -41,9 +42,12 @@ models:
     - name: complete_sales
       description: "referral records and completes the pipeline from inbound to outbound"
 
-    - name: monthly_successful_referral_rate
-      description: "referral (inbound or outbound) reached sucessful stage"
-      
+    - name: monthly_successful_inbound_referral_rate
+      description: "inbound referral inbound reached sucessful stage"
+
+    - name: monthly_successful_outbound_referral_rate
+      description: "outbound referral inbound reached sucessful stage"
+
     - name: commission_by_inbound_partner
       description: "unique referral records that completes the pipeline from inbound to outbound"
       tests:
