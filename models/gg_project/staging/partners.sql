@@ -4,7 +4,10 @@ WITH CTE AS (
         DATE(TIMESTAMP_SECONDS(CAST(CAST(created_at/1000000000 AS float64) AS int64))) AS created_at, 
         DATE(TIMESTAMP_SECONDS(CAST(CAST(updated_at/1000000000 AS float64) AS int64))) AS updated_at,
         REPLACE(partner_type, ' ', '_') AS partner_type, 
-        lead_sales_contact
+        CASE 
+            WHEN lead_sales_contact = '0' THEN 'Potato'
+            ELSE lead_sales_contact
+        END as lead_sales_contact
     FROM {{ source('SQL_DBT_demo_source', 'partners')}})
 
 SELECT

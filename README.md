@@ -1,18 +1,18 @@
 # Welcome to GG's dbt project!
 
 ## Vision
-DBT is very power tool for structuring datasets within GG and serve as version control on query definition. GG is a data driven company and different departments have customized needs for data view on carrying out further analysis. 
+DBT is very power tool for structuring datasets within GG's domain and serves as version control on query definition. GG is a data driven company and different departments have customized needs for data view on carrying out further analysis. 
 After processing and transforming the raw data, this project aims to create views that can be easy to locate, straight-forward to understand, and single source of truth to each departments. 
 
 ## Models Structure
-- *Staging space*: staging space contains transformed dataset from raw/source data that can be ready to use for future analysis/modeling 
-- *Modeled space*: the modeled space contains views developed for different departments & purposes, including:
-    - company_kpi: company-wide usage
+- **Staging space**: staging space contains transformed dataset from raw/source data that can be ready to use for future analysis/modeling 
+- **Modeled space**: the modeled space contains views developed for different departments & purposes, including:
+    - company_kpi: company-wide usage, showing high-level summary of referrals
     - finance: commission calculation 
-    - sales: stats for referral records 
+    - sales: stats for referral records - including complete referral records, and successful rates of both inbound and outbound referrals on a monthly basis, and summaries of monthly and regional referrals
 
 ## Assumptions
-The referral raw datasets contains both inbound and outbound referrals. 
+The referral raw dataset contains both inbound and outbound referrals. 
 Based on the provided information, it is assumed that, a complete referral record would include an inbound and an outbound record. For example:
 1. Consultant Harry from Partner Hogwarts connects with Customer Ron from Company Gryffindor
 2. Harry introduced Ron to GG
@@ -56,7 +56,7 @@ The raw data is possibly stored and managed in a data warehouse. Some potential 
     - The data team can look through how users are usaing different table or views to generate data they need, better dbt query can be implemented based on user's needs
 2. Table/view processing stats 
     - With business expansion, more records will be generated. By reviewing processing stats, the data team can improve data relations and structure
-    
+
 ### Using the starter project
 
 Try running the following commands:
