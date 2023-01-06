@@ -7,12 +7,7 @@ sources:
       - name: partners
       - name: referrals
       - name: sales_people
+      - name: sales_people_edited
 
-  - name: SQL_DBT_demo
-    schema: SQL_DBT_demo
-    tables:
-      - name: Squirrel_2018_census
-      - name: partners
-      - name: referrals
-      - name: sales_people
+
       

@@ -15,11 +15,13 @@ models:
                 - not_null
                 - dbt_expectations.expect_column_values_to_be_in_set:
                     value_set: ['Agent', 'Developer', 'IFA', 'Influencer', 'Insurer', 'Lender', 'Management company', 'Other']
+            
           - name: lead_sales_contact
             description: "sale rep name"
             tests:
                 - not_null
                 - dbt_utils.not_empty_string
+                - sales_lead_inclusion
 
     - name: referrals
       description: "raw data of all referrals"
@@ -39,7 +41,8 @@ models:
             - unique
             - not_null
             - dbt_utils.not_empty_string
-    - name: complete_sales
+
+    - name: complete_referrals
       description: "referral records and completes the pipeline from inbound to outbound"
 
     - name: monthly_successful_inbound_referral_rate
@@ -47,6 +50,12 @@ models:
 
     - name: monthly_successful_outbound_referral_rate
       description: "outbound referral inbound reached sucessful stage"
+
+    - name: monthly_referral_stats
+      description: "referral stats summarizing overall referral counts and referral processing time"
+
+    - name: regional_closed_referral_stats
+      description: "referral stats based on regions summarizing overall referral counts and referral processing time by referral closed time (i.e status reached successful or disinterested)"
 
     - name: commission_by_inbound_partner
       description: "unique referral records that completes the pipeline from inbound to outbound"
