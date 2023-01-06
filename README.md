@@ -39,7 +39,7 @@ Link to the [notebook](https://colab.research.google.com/drive/1aFFbXqrOjf7U_EYk
 
 ## Improvements
 If the above assumptions are correct, there are some additional features can be considered to make the analysis more robust and improve customer experience.
-Some interesting features to include can be:
+Some interesting features to include in the existing raw data can be:
 1. Customer ID - easier to match the inbound and outbound record
     - assigned a Specific customer ID to a customer from a company
     - if the customer switch to a different company, a new ID can be assigned
@@ -50,6 +50,13 @@ Some interesting features to include can be:
     - Most of the records are in pending status
     - Follow-up records might be helpeful for the sales team to prioritize cilent meeting 
 
+The raw data is possibly stored and managed in a data warehouse. Some potential datasets can be added to improve data service include:
+1. The user worklogs 
+    - Review user's worklogs can help the data team to identify department needs for data and select proper data warehouse/database/data lake products
+    - The data team can look through how users are usaing different table or views to generate data they need, better dbt query can be implemented based on user's needs
+2. Table/view processing stats 
+    - With business expansion, more records will be generated. By reviewing processing stats, the data team can improve data relations and structure
+    
 ### Using the starter project
 
 Try running the following commands:
