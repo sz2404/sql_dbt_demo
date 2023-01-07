@@ -3,7 +3,7 @@ WITH validation AS (
     SELECT DISTINCT column_name as missing_sales_people
     FROM {{ model }}
     WHERE column_name not in 
-    (SELECT Name FROM {{ ref('sales_people')}}
+    (SELECT Name FROM {{ ref('sales_people_edited')}}
 ),
 
 validation_errors as (
