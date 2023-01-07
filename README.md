@@ -35,11 +35,11 @@ To make those two referrals for a complete referral record, it is assumed that o
 
 ## Visualization sample
 A few different plots were generated in Google Colab notebook to visualize the processed datasets. 
-Link to the [notebook](https://colab.research.google.com/drive/1aFFbXqrOjf7U_EYkPAzi97tp3f3Ut5kv#scrollTo=w6MmeBUBJ-9E
+Link to the [notebook](https://colab.research.google.com/drive/1aFFbXqrOjf7U_EYkPAzi97tp3f3Ut5kv#scrollTo=w6MmeBUBJ-9E)
 
 ## Data Issues and Resolutions
 There are sales manager names found in the partners dataset but do not exist in the sales people dataset. 
-To resolve this issue, partners dataset was quickly reviewed in a [notebook] (https://colab.research.google.com/drive/1eip6HPE1-O5teBeBhdOaJtN6zQo8iArX?usp=share_link) and suggested values for imputing missing entries. Additional names were added in the sales people dataset.
+To resolve this issue, partners dataset was quickly reviewed in a [notebook](https://colab.research.google.com/drive/1eip6HPE1-O5teBeBhdOaJtN6zQo8iArX?usp=share_link) and suggested values for imputing missing entries. Additional names were added in the sales people dataset.
 
 A test was also created for future use to compare sales manager names from partners and from the sales people dataset to ensure all new coming sales manager are accounted for properly. 
 
