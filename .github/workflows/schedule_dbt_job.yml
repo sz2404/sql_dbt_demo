@@ -1,0 +1,31 @@
+name: dbt
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DBT_PROFILES_DIR: ./
+  DBT_GOOGLE_PROJECT: sql-dbt-demo
+  DBT_GOOGLE_BIGQUERY_DATASET: SQL_DBT_demo_source
+  DBT_GOOGLE_BIGQUERY_KEYFILE: ./.gcloud/sql-dbt-demo-6c8339d14236.json
+
+jobs:
+  dbt:
+    name: dbt
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.7.x"
+      - run: pip3 install dbt
+      - run: dbt --version
+      - run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
+        shell: bash
+        env:
+          KEYFILE: ${{secrets.DBT_GOOGLE_BIGQUERY_KEYFILE}}
+      - run: dbt run
+      - run: dbt test
